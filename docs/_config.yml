@@ -1,0 +1,9 @@
+# Site settings
+title: Weather Forecast
+tag_text:
+description:
+
+# Build settings
+markdown: kramdown
+
+exclude: ["README.md"]
