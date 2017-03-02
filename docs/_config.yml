@@ -1,7 +1,7 @@
 # Site settings
 title: Weather Forecast
 tag_text:
-description:
+description: Simple weather forecast interface using simpleweatherjs
 
 # Build settings
 markdown: kramdown

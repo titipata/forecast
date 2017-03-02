@@ -12,6 +12,7 @@ $(document).ready(function() {
       html += '<ul><li>' + weather.high + '&deg;C' + ' <font color="#0074d9">' + weather.low + '&deg;C</font></li>'
       html += '<li>' + weather.city + ', ' + weather.region + '</li>';
       html += '<li class="currently">' + weather.currently + '</li>';
+      html += '<li> humidity ' + weather.humidity + ' &#37;</li>';
       html += '<li>'+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</li></ul>';
       for(var i=1;i<weather.forecast.length;i++) {
         html += '<i class="wi wi-yahoo-' + weather.forecast[i].code + '"></i> '
