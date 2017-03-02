@@ -9,11 +9,14 @@ $(document).ready(function() {
     unit: 'c',
     success: function(weather) {
       html = '<h2><i class="wi wi-yahoo-' + weather.code + '"></i> ' + days[d.getDay()] + ': ' + weather.temp + '&deg;' + weather.units.temp + ' (' + weather.alt.temp + '&deg;F)</li>' + '</h2>';
-      html += '<ul><li>' + weather.city + ', ' + weather.region + '</li>';
+      html += '<ul><li>' + weather.high + '&deg;C' + ' <font color="#0074d9">' + weather.low + '&deg;C</font></li>'
+      html += '<li>' + weather.city + ', ' + weather.region + '</li>';
       html += '<li class="currently">' + weather.currently + '</li>';
       html += '<li>'+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</li></ul>';
       for(var i=1;i<weather.forecast.length;i++) {
-        html += '<i class="wi wi-yahoo-' + weather.forecast[i].code + '"></i> ' + weather.forecast[i].day + ': ' + weather.forecast[i].high + '&deg;C</br>';
+        html += '<i class="wi wi-yahoo-' + weather.forecast[i].code + '"></i> '
+        html += weather.forecast[i].day + ': '
+        html += weather.forecast[i].high + '&deg;C  ' + '<font color="#0074d9">' + weather.forecast[i].low + '&deg;C</font></br>';
       }
       $("#weather").html(html);
     },
