@@ -20,11 +20,16 @@ $(document).ready(function() {
         html += '<i class="fa fa-location-arrow" aria-hidden="true"></i> ' +  weather.city + ', ' + weather.region;
         html += '<ul><li> humidity ' + weather.humidity + ' &#37;</li>';
         html += '<li> wind '+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</li></ul>';
+        html += '<table class="forecast">';
         for(var i=1;i<weather.forecast.length;i++) {
-          html += '<i class="wi wi-yahoo-' + weather.forecast[i].code + '"></i> '
-          html += weather.forecast[i].day + ': '
-          html += weather.forecast[i].high + '&deg;C  ' + '<font color="#0074d9">' + weather.forecast[i].low + '&deg;C</font></br>';
+          html += '<tr>';
+          html += '<td>' + '<i class="wi wi-yahoo-' + weather.forecast[i].code + '"></i> ' + '</td>';
+          html += '<td>' + weather.forecast[i].day + ': ' + '</td>';
+          html += '<td class="temp">' + weather.forecast[i].high + '&deg;C  ' + '</td>';
+          html += '<td class="temp">' + '<font color="#0074d9">' + weather.forecast[i].low + '&deg;C</font></br>' + '</td>';
+          html += '</tr>';
         }
+        html += '</table>'
         $("#weather").html(html);
       },
       error: function(error) {
