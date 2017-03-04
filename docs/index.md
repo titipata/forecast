@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# Weather Forcast
+# Weather Forecast
 
 <div id="weather"></div>
 
