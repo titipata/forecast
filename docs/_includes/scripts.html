@@ -7,6 +7,16 @@ $(document).ready(function() {
   var d = new Date();
   var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
+  function windchill(Tc, v, unit){
+    if (unit == 'C') {
+      var Twc = 13.12 + (0.6215 * Tc) - (11.37 * Math.pow(v, 0.16)) + (0.3965 * Tc * Math.pow(v, 0.16));
+      return Math.round(Twc)
+    } else {
+      var Twc = 35.74 + (0.6215 * Tc) - (35.75 * Math.pow(v, 0.16)) + (0.4275 * Tc * Math.pow(v, 0.16));
+      return Math.round(Twc)
+    }
+  }
+
   function getWeather() {
     $.simpleWeather({
       woeid: '',
@@ -19,7 +29,8 @@ $(document).ready(function() {
         html += '<h2>' + weather.temp + '&deg;C</h2>';
         html += '<i class="fa fa-location-arrow" aria-hidden="true"></i> ' +  weather.city + ', ' + weather.region;
         html += '<ul><li> humidity ' + weather.humidity + ' &#37;</li>';
-        html += '<li> wind '+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</li></ul>';
+        html += '<li> wind ' + weather.wind.direction + ' ' + weather.wind.speed + ' ' + weather.units.speed + '</li>';
+        html += '<li> feels like ' + windchill(weather.temp, weather.wind.speed , 'C') + ' &deg;C' +  '</li></ul>'
         html += '<table class="forecast">';
         for(var i=1;i<weather.forecast.length;i++) {
           html += '<tr>';
